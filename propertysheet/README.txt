@@ -74,6 +74,22 @@ ADT ENHANCEMENTS
   default" (and for certain categories to be excluded, such as
   deprecations).
 
+WINDOW DOCKING
+---------------
+
+The window docking support (the "FlyoutControlComposite" and
+supporting classes) was also included, since it's used to present the
+property sheet view in ADT. This code was also modified in a couple of
+minor ways, using the same modification markers as above:
+- Support invisible children (where the whole flyout is hidden)
+- Added a "dismiss hover" method used to hide a temporary hover
+  (needed when the hovers are used with native drag & drop)
+- Added a listener interface and notification when window states chane
+  (used to auto-zoom the layout canvas when windows are collapsed or
+  expanded).
+- Changed the sizeall cursor used for dragging composites from the SWT
+  SIZE_ALL cursor to the HAND cursor since (at least on Mac) the
+  cursor looked wrong for docking.
 
 UPDATES
 --------

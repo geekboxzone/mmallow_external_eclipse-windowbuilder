@@ -24,4 +24,18 @@ public interface ICursorConstants {
    * System resize west-east cursor
    */
   Cursor SIZEWE = new Cursor(null, SWT.CURSOR_SIZEWE);
+  /**
+   * System resize north-south cursor
+   */
+  Cursor SIZENS = new Cursor(null, SWT.CURSOR_SIZENS);
+  /**
+   * System resize all directions cursor.
+   */
+  // BEGIN ADT MODIFICATIONS
+  // The SWT CURSOR_SIZEALL cursor looks wrong; it's cross hairs. Use a hand for resizing
+  // instead. See the icons shown in
+  //  http://www.eclipse.org/articles/Article-SWT-images/graphics-resources.html
+  //Cursor SIZEALL = new Cursor(null, SWT.CURSOR_SIZEALL);
+  Cursor SIZEALL = new Cursor(null, SWT.CURSOR_HAND);
+  // END ADT MODIFICATIONS
 }

@@ -67,6 +67,7 @@ public interface IColorConstants {
   Color lightGray = new Color(null, 192, 192, 192);
   Color gray = new Color(null, 128, 128, 128);
   Color darkGray = new Color(null, 64, 64, 64);
+  Color black = new Color(null, 0, 0, 0);
   Color lightBlue = new Color(null, 127, 127, 255);
   Color darkBlue = new Color(null, 0, 0, 127);
 
