@@ -57,6 +57,7 @@ public abstract class AbstractTextPropertyEditor extends TextDisplayPropertyEdit
     private class ImmediateProposalAdapter extends ContentProposalAdapter
         implements FocusListener, IContentProposalListener, IContentProposalListener2 {
         private final PropertyTable m_propertyTable;
+        private final IContentProposalProvider m_proposalProvider;
         public ImmediateProposalAdapter(
                 Text control,
                 IControlContentAdapter controlContentAdapter,
@@ -67,6 +68,7 @@ public abstract class AbstractTextPropertyEditor extends TextDisplayPropertyEdit
             super(control, controlContentAdapter, proposalProvider, keyStroke,
                     autoActivationCharacters);
             m_propertyTable = propertyTable;
+            m_proposalProvider = proposalProvider;
 
             // On focus gain, start completing
             control.addFocusListener(this);
@@ -103,6 +105,12 @@ public abstract class AbstractTextPropertyEditor extends TextDisplayPropertyEdit
         }
 
         private void openIfNecessary() {
+            if (m_textControl == null || m_textControl.isDisposed() ||
+                    m_proposalProvider.getProposals(m_textControl.getText(),
+                            m_textControl.getCaretPosition()).length == 0) {
+                return;
+            }
+
             getControl().getDisplay().asyncExec(new Runnable() {
                 @Override
                 public void run() {
