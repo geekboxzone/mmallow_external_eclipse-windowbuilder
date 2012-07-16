@@ -317,6 +317,11 @@ public abstract class AbstractTextPropertyEditor extends TextDisplayPropertyEdit
    * @return <code>true</code> if transfer was successful.
    */
   private boolean toProperty(Property property) throws Exception {
+    // BEGIN ADT MODIFICATIONS
+    if (m_textControl == null) {
+      return false;
+    }
+    // END ADT MODIFICATIONS
     String text = m_textControl.getText();
     // change property only if text was changed
     if (!m_currentText.equals(text)) {
